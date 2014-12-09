@@ -1,0 +1,56 @@
+<div class="bg-rotate"></div>
+
+<div class="wrapper">
+    <div class="news">
+        <h3 class="l-m-b30">
+          {{#if preview}}
+              <small class="glyphicon glyphicon-chevron-left" title="Previous" {{action prevNews target="view"}}></small>
+              <small class="glyphicon glyphicon-chevron-right" title="Next" {{action nextNews target="view"}}></small>
+              <small class="glyphicon glyphicon-plus" title="Add" {{action addNews}}></small>
+              <small class="glyphicon glyphicon-minus" title="Remove" {{action removeNews}}></small>
+              ADMIN
+          {{else}}
+              <img src="/images/microphone.png" class="vertical-inherit" />
+              NEWS & EVENTS
+          {{/if}}
+
+          {{#if preview}}
+            {{uiNewsIndex}}/{{news.length}}
+              <small class="glyphicon glyphicon-chevron-up" title="Shift Down" {{action shiftPrev}}></small>
+              <small class="glyphicon glyphicon-chevron-down" title="Shift Up" {{action shiftNext}}></small>
+          {{/if}}
+        </h3>
+      {{#each item in news}}
+          <div class="panel fade" {{bind-attr data-index="item.sort"}}>
+            {{#if item.edit}}
+                <h4>{{input value=item.title    class="form-control" enter="endNewsEdit"}}</h4>
+                <h6>{{textarea value=item.body  class="form-control" enter="endNewsEdit"}}</h6>
+                <h6>{{input value=item.time     class="form-control" enter="endNewsEdit"}}</h6>
+                <h6>{{input value=item.location class="form-control" enter="endNewsEdit"}}</h6>
+                <div>{{view I.UploadFile name="image" file=item.image }}</div>
+              {{#if item.image}}
+                  <div><label>{{input type="checkbox" checked=item.removeFile}}&nbsp;&nbsp;Remove File</label></div>
+              {{/if}}
+                <button class="btn btn-success" {{action endNewsEdit}}>Done</button>
+            {{else}}
+                <div {{action startNewsEdit item}}>
+                    <h4>{{item.title}}</h4>
+                    <div class="news-body">
+                        <div {{bind-attr class="item.image:has-image"}}>
+                            <h5>{{item.body}}</h5>
+                            <h6 class="event-time">{{item.time}}</h6>
+                            <h6 class="event-location">{{item.location}}</h6>
+                        </div>
+                      {{#if item.image}}
+                          <img {{bind-attr src=item.image}} />
+                          <div class="clear"></div>
+                      {{/if}}
+                    </div>
+                </div>
+            {{/if}}
+          </div>
+      {{/each}}
+    </div>
+</div>
+
+{{outlet}}

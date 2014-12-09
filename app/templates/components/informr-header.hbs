@@ -1,0 +1,32 @@
+<img src="/images/paycorLogo.png" />
+<span class="temp">
+            <h2>
+                {{config.weather.temp}}&deg;
+                <span {{bind-attr class=":icon config.weather.icon"}}></span>
+            </h2>
+            <h5>{{config.weather.text}}</h5>
+        </span>
+<span class="time">
+            <h2 id="clock"></h2>
+            <h5 id="date"></h5>
+        </span>
+<div class="admin-submit">
+  {{#if admin}}
+      <button class="btn btn-lg btn-default" {{action togglePreview}}>
+        {{#if preview}}
+            Preview
+        {{else}}
+            Exit Preview
+        {{/if}}
+      </button>
+  {{/if}}
+  {{#if preview}}
+      <button class="btn btn-lg btn-default" {{action nextBg target="view"}}>Rotate BG</button>
+      <button class="btn btn-lg btn-success" {{action update}}>Update</button>
+
+    {{#if message}}
+        <div {{bind-attr class=":l-m-t20 :alert error:alert-danger:alert-success"}} {{action clearMsg}}>{{{message}}}</div>
+    {{/if}}
+  {{/if}}
+</div>
+{{yield}}

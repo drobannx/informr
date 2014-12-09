@@ -1,3 +1,250 @@
-html, body {
-  margin: 20px;
+/************************* TYPOGRAPHY *************************/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #aaa;
+  font-family: 'Oxygen', sans-serif;
+  color:#fff;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+}
+
+header {
+  background-color: rgba(0,0,0,0.2);
+  margin-top: 15px;
+  padding: 0 15px 5px;
+  text-align: right;
+  height: 164px;
+  color: #fff;
+}
+
+.clear {
+  clear: both;
+}
+
+header img {
+  float:left;
+  padding-left: 20px;
+}
+
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6, label {
+  margin: 0;
+}
+
+h1, h1 .form-control {
+  font-size: 200px;
+  font-weight: 100;
+}
+
+h2, h2 .form-control {
+  font-size: 110px;
+  line-height: 110px;
+  font-weight: 100;
+}
+
+h3, h3 .form-control { font-size: 80px; }
+h4, h4 .form-control { font-size: 60px; min-height: 85px; }
+h5, h5 .form-control { font-size: 40px; min-height: 50px; }
+h6, h6 .form-control { font-size: 25px; min-height: 35px; }
+
+label { color:#fff; }
+
+input, textarea, .btn {
+  margin-bottom: 20px;
+}
+
+.news > h3 {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+
+/************************* LAYOUT *************************/
+
+header, .wrapper {
+  position: relative;
+  z-index: 3;
+}
+
+header, .news {
+  text-shadow: 2px 2px #333
+}
+
+.temp, .time {
+  float: right;
+  text-align: center;
+}
+
+.temp {
+  margin-right:20px;
+  margin-left:100px;
+}
+
+.time {
+  margin-right: 150px;
+}
+
+.remove {
+  position: absolute;
+  right: -50px;
+  top: 15px;
+}
+
+.remove h6 {
+  display: block;
+  min-height: 20px;
+}
+
+.news {
+  width: 1920px;
+  padding: 20px 35px 0 20px;
+}
+
+.panel {
+  background-color: rgba(255,255,255,0.75);
+  padding: 20px;
+  color: #444;
+  text-shadow: none;
+  position: absolute;
+  left: 20px;
+  right: 20px;
+}
+
+.panel h4 {
+  color: #f47321;
+  margin-bottom: 20px;
+}
+
+.panel h5 {
+  line-height:50px;
+  margin-bottom: 70px;
+}
+
+.panel .news-body img {
+  width: 20%;
+  margin-top: 10px;
+  float: right;
+}
+
+.panel .news-body .has-image {
+  float: left;
+  width: 1450px;
+}
+
+.panel .news-body h6.event-time {
+  position: absolute;
+  bottom: 35px;
+}
+
+.panel .news-body h6.event-location {
+  position: absolute;
+  bottom: 0;
+}
+
+.panel label {
+  color: #555;
+}
+
+.panel .btn {
+  margin-top: 10px;
+}
+
+.details {
+  margin-top:15px;
+}
+
+.bg-rotate {
+  position: absolute;
+  top: 0;
+}
+
+.bg-rotate img {
+  position: absolute;
+}
+
+.l-m-b30  { margin-bottom: 30px; }
+
+.l-m-t20  { margin-top: 20px; }
+.l-m-t50  { margin-top: 50px; }
+.l-m-t200 { margin-top: 200px; }
+
+/************************* ANIMATE *************************/
+
+.bg-fade {
+  opacity: 0;
+  -webkit-transition: opacity 0s linear;
+  transition: opacity 0s linear;
+}
+
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity 0s linear;
+  transition: opacity 0s linear;
+}
+
+.fade.in {
+  opacity: 1;
+}
+
+/************************* ADMIN *************************/
+
+.admin-submit {
+  position: absolute;
+  top: 60px;
+  left: 535px;
+}
+
+.admin-submit .alert {
+  position: absolute;
+  width: 100%;
+  text-shadow: none;
+}
+
+/************************* WEATHER ICONS *************************/
+.icon {
+  background: transparent url('/images/icons.png') no-repeat 0 0;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background-size:400px 294px;
+}
+
+.icon-partlyCloudy {
+  background-position: -100px 0;
+}
+
+.icon-cloudy {
+  background-position: -200px 0;
+}
+
+.icon-windy {
+  background-position: -300px -195px;
+}
+
+.icon-storm {
+  background-position: -200px -95px;
+}
+
+.icon-rain {
+  background-position: -300px -95px;
+}
+
+.icon-snow {
+  background-position: 0 -100px;
+}
+
+.icon-foggy {
+  background-position: 0 -195px;
 }
